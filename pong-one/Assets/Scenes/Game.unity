@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 858323304}
   m_Layer: 5
   m_Name: RightGoal
-  m_TagString: Untagged
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
