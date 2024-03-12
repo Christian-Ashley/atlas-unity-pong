@@ -37,9 +37,5 @@ public class Player : Paddle
             _bouncy.AddForce(direction * speed);
         }    
     }
-    void OnTriggerEnter2D(Collider2D other) 
-    {
-        
-        Debug.Log ("Triggered");
-    }
+    
 }

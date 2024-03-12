@@ -23,4 +23,8 @@ public class Ball : MonoBehaviour
     {
         rb.velocity = new Vector2(-1, 0) * (strtSpd + spdIncrease);
     }
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        rb.velocity = new Vector2(1, 0) * (strtSpd + spdIncrease);
+    }
 }
