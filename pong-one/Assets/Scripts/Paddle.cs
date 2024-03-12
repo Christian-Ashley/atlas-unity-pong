@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    protected Rigidbody2D _bouncy;
+    public float speed = 100.0f;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        _bouncy = GetComponent<Rigidbody2D>();
+
     }
 }

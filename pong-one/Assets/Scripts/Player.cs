@@ -1,26 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Paddle
 {
-    public float paddleSpeed = 15;
-    public KeyCode upKey;
-    public KeyCode downKey;
-
-void Update()
-{
-    // Move the paddle up if the upKey is pressed
-    if (Input.GetKey(upKey))
+    public KeyCode upKey = KeyCode.W;
+    public KeyCode downKey = KeyCode.S;
+    private Vector2 direction;
+    // Start is called before the first frame update
+    void Start()
     {
-        transform.Translate(Vector3.up * paddleSpeed * Time.deltaTime);
+        
     }
 
-    // Move the paddle down if the downKey is pressed
-    if (Input.GetKey(downKey))
+    // Update is called once per frame
+    void Update()
     {
-        transform.Translate(Vector3.down * paddleSpeed * Time.deltaTime);
+        if (Input.GetKey(upKey))
+        {
+            direction = Vector2.up;
+        }
+        else if (Input.GetKey(downKey))
+        {
+            direction = Vector2.down;
+        }
+        else
+        {
+            direction = Vector2.zero;
+        }
     }
-
-}
+    private void FixedUpdate() 
+    {
+        if (direction.sqrMagnitude > 0)
+        {
+            _bouncy.AddForce(direction * speed);
+        }    
+    }
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        
+        Debug.Log ("Triggered");
+    }
 }
