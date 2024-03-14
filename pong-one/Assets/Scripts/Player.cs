@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Player : Paddle
 {
-    public KeyCode upKey = KeyCode.W;
-    public KeyCode downKey = KeyCode.S;
-    private Vector2 direction;
+    public KeyCode upKey;
+    public KeyCode downKey;
+
+    float moveSpeed = 1000f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,25 +18,18 @@ public class Player : Paddle
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(upKey))
-        {
-            direction = Vector2.up;
-        }
-        else if (Input.GetKey(downKey))
-        {
-            direction = Vector2.down;
-        }
-        else
-        {
-            direction = Vector2.zero;
-        }
+        playerMovement();
     }
-    private void FixedUpdate() 
+
+    void playerMovement()
     {
-        if (direction.sqrMagnitude > 0)
+        if(Input.GetKey(upKey))
         {
-            _bouncy.AddForce(direction * speed);
-        }    
+            transform.Translate(Vector2.up * Time.deltaTime * moveSpeed);
+        }
+        if(Input.GetKey(downKey))
+        {
+            transform.Translate(Vector2.down * Time.deltaTime * moveSpeed);
+        }
     }
-    
 }
