@@ -32,14 +32,14 @@ public class Paddle : MonoBehaviour
             
             if (ball.gameObject.transform.position.y > 0)
             {
-                Debug.Log ("boing");
+                Debug.Log ("bump");
                 _bouncy.velocity = Vector2.zero;
-                //transform.localPosition = new Vector2 (transform.localPosition.x, 550);
+                transform.localPosition = new Vector2 (transform.localPosition.x, 550);
             }
             else
             {
                 _bouncy.velocity = Vector2.zero;
-                //transform.localPosition = new Vector2 (transform.localPosition.x, -550);
+                transform.localPosition = new Vector2 (transform.localPosition.x, -550);
             }
         }
     }
@@ -51,11 +51,4 @@ public class Paddle : MonoBehaviour
     {
         return ResetPos;
     }
-    //private void OnTriggerEnter2D(Collider2D Wall)
-    //{
-       // if (collision.gameObject.CompareTag("Wall"))
-       // {
-           // _bouncy.velocity = Vector2.zero;
-       // }
-    //}
 }
